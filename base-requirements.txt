@@ -1,0 +1,11 @@
+# ---- API Framework ----
+fastapi==0.110.0
+uvicorn==0.27.0
+pydantic==2.5.3
+
+# ---- Database / ORM ----
+sqlalchemy==2.0.25
+alembic==1.13.1
+
+# ---- Observability ----
+structlog==24.1.0
