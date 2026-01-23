@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from controllers.incident_controller import router
+from incident_service.controllers.incident_controller import router
 
 app = FastAPI(title="Incident Service")
 

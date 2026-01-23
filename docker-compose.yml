@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   incident-service:
     build:
@@ -8,7 +6,7 @@ services:
       args:
         BASE_IMAGE: python:3.11-slim
     command: >
-      uvicorn incident-service.main:app
+      uvicorn incident_service.main:app
       --host 0.0.0.0
       --port 8000
     ports:
@@ -23,7 +21,7 @@ services:
       args:
         BASE_IMAGE: python:3.11-slim
     command: >
-      uvicorn ai-service.main:app
+      uvicorn ai_service.main:app
       --host 0.0.0.0
       --port 8001
     ports:
