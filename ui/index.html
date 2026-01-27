@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Incident AI Platform</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1> Incident AI Platform </h1>
+    <section>
+        <button onclick="checkHealth()">Check Health</button>
+        <pre id="healthResult"></pre>
+    </section>
+
+    <section>
+        <h2>Create Incident</h2>
+        <form id="incidentForm" onsubmit="submitIncident(event)">
+            <label>Title *</label><br />
+                <input type="text" id="title" /><br /><br />
+
+            <label>Description</label><br />
+                <textarea id="description"></textarea><br /><br />
+            <label>Priority *</label><br />
+            <select id="priority">
+                <option value="">-- Select --</option>
+                <option value="P1">P1 - Critical</option>
+                <option value="P2">P2 - High</option>
+                <option value="P3">P3 - Medium</option>
+            </select><br /><br />
+
+            <label>Application CI *</label><br />
+                <input type="text" id="application_ci" /><br /><br />
+            <label>email</label><br />
+
+            <input type="email" id="reported_by" /><br /><br />
+
+            <button type="submit">Create Incident</button>
+        </form>
+
+        <pre id="incidentResult"></pre>
+        <pre id="errorResult" style="color:red;"></pre>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
