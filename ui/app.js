@@ -72,3 +72,31 @@ async function submitIncident(event) {
       err.message;
   }
 }
+
+async function runPrecheck() {
+  const payload = {
+    title: document.getElementById("title").value,
+    description: document.getElementById("description").value,
+    priority: document.getElementById("priority").value,
+    application_ci: document.getElementById("application_ci").value,
+    reported_by: document.getElementById("reported_by").value
+  };
+
+  document.getElementById("aiHints").textContent = "";
+
+  const response = await fetch(`${API_BASE}/api/incidents/precheck`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+
+  const result = await response.json();
+
+  if (result.hint_count === 0) {
+    document.getElementById("aiHints").textContent =
+      "✅ No issues found. Ready to create incident.";
+  } else {
+    document.getElementById("aiHints").textContent =
+      "⚠ AI Suggestions:\n- " + result.hints.join("\n- ");
+  }
+}
